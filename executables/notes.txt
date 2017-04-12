@@ -1,6 +1,0 @@
-bypass proxies that check file headers
-Sysinternals has all the PK headers replaced with "w00t"
-
-download the binary and open it in a text editor and replace w00t with PK and unzip
-
-606 occurances
